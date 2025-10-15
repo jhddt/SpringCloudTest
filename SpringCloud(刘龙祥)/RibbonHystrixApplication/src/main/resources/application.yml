@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: RibbonHystrixApplication
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.56.101:1111/eureka/,http:// 192.168.56.101:2222/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeout-in-milliseconds: 3000

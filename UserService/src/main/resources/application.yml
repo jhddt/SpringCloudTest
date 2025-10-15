@@ -1,0 +1,27 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: UserService
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.141.128:3306/test?serverTimezone=UTC &useUnicode=true& characterEncoding=utf-8&useSSL=true
+    username: linkout_user
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+#mybatis mapper文件的位置
+mybatis:
+  mapper-locations: classpath*:mappers/**/*.xml
+#扫描pojo类的位置,在此处指明扫描实体类的包，在mapper中就可以不用写pojo类的全路径名了
+  type-aliases-package: com.example.UserService.entity
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://eurekaserver-master:1111/eureka/, http://eurekaserver-slave:2222/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    instance:
+      prefer-ip-address: true
+      instance-id: ${spring.application.name}:${server.port}
+  

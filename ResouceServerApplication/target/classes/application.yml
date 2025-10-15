@@ -1,0 +1,25 @@
+server:
+  port: 8081
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: resource-server-application
+  security:
+    oauth2:
+          resourceserver:
+            jwt:
+              issuer-uri: http://192.168.141.128:3333
+              jwk-set-uri: http://192.168.141.128:3333/oauth2/jwks
+
+# OAuth2 Resource Server Configuration
+
+logging:
+  level: 
+    org:
+      springframework:
+        security: DEBUG
+    com:
+      baorant:
+        resouceserverapplication: DEBUG
+    root: INFO

@@ -1,0 +1,5 @@
+com\example\UserService\service\UserService.class
+com\example\UserService\entity\User.class
+com\example\UserService\UserServiceApplication.class
+com\example\UserService\controllers\UserController.class
+com\example\UserService\dao\UserMapper.class

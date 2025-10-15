@@ -1,0 +1,14 @@
+com\baorant\auth_server\entity\SpringcloudUserRole.class
+com\baorant\auth_server\controller\LoginController.class
+com\baorant\auth_server\config\CustomRegisteredClientRepository.class
+com\baorant\auth_server\controller\TestController.class
+com\baorant\auth_server\service\UserServiceImpl.class
+com\baorant\auth_server\config\DatabaseUserDetailsService.class
+com\baorant\auth_server\dao\SpringcloudUserMapper.class
+com\baorant\auth_server\controller\HomeController.class
+com\baorant\auth_server\dao\SpringcloudUserRoleMapper.class
+com\baorant\auth_server\config\MyBatisConfiguration.class
+com\baorant\auth_server\config\Oauth2AuthorizationServerConfiguration.class
+com\baorant\auth_server\service\UserService.class
+com\baorant\auth_server\entity\SpringcloudUser.class
+com\baorant\auth_server\AuthServerApplication.class

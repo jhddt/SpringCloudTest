@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: zuulserver
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+server:
+  port: 4444
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.56.101:1111/eureka/,http:// 192.168.56.101:2222/eureka/
+
+zuul:
+  routes:
+    user:
+      path: /users/**
+      serviceId: userService
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+# application.yml
+filter:
+  ip:
+    whitelist: 192.168.56.1,192.168.1.2
+    whitelistenabled: ture
+
+# 配置日志路径
+logging:
+  file:
+    name: /var/log/api-gateway/app.log
+  level:
+    root: debug
