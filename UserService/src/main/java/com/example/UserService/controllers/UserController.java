@@ -50,7 +50,8 @@ public class UserController {
     @Value("${server.port}")
     int port;
     @RequestMapping(value = "/sayHi", method = RequestMethod.GET)
-    public String hello() {
+    public String hello(@RequestParam(value = "sleep_seconds", required = true) int sleep_seconds) throws InterruptedException {
+        Thread.sleep(sleep_seconds * 1000); //休眠
         return "Hello, 我在" + ipaddr + ":" + port;
     }
 
