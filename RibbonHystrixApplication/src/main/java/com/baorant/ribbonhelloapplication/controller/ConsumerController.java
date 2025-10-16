@@ -16,6 +16,9 @@ public class ConsumerController {
     @Autowired
     LoadBalancerClient loadBalancerClient;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     /**
      * HystrixCommand默认超时时间为1秒
      */
@@ -29,7 +32,6 @@ public class ConsumerController {
 
         ServiceInstance serviceInstance = loadBalancerClient.choose("UserService");
         String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/user/sayHi?sleep_seconds="+sleep_seconds;
-        RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);
 
         return result;
@@ -50,12 +52,8 @@ public class ConsumerController {
 
         ServiceInstance serviceInstance = loadBalancerClient.choose("UserService");
         String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/user/sayHi?sleep_seconds="+sleep_seconds;
-
-        RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);
 
         return result;
     }
 }
-
-
