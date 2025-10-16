@@ -9,6 +9,10 @@
         <option value="$PROJECT_DIR$/UserService/pom.xml" />
         <option value="$PROJECT_DIR$/auth_server/pom.xml" />
         <option value="$PROJECT_DIR$/ResouceServerApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/FeignCloudClientApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/FeignHystrixApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/RibbonHelloApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/RibbonHystrixApplication/pom.xml" />
       </list>
     </option>
   </component>

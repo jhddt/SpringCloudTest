@@ -7,18 +7,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka_server" />
-        <module name="RibbonHelloApplication" />
         <module name="UserService" />
+        <module name="RibbonHelloApplication" />
+        <module name="RibbonHystrixApplication" />
+        <module name="eureka_server" />
+        <module name="FeignHystrixApplication" />
+        <module name="FeignCloudClientApplication" />
         <module name="auth_server" />
         <module name="ResouceServerApplication" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RibbonHelloApplication (1)" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="FeignCloudClientApplication" options="-parameters" />
+      <module name="FeignHystrixApplication" options="-parameters" />
       <module name="ResouceServerApplication" options="-parameters" />
       <module name="RibbonHelloApplication" options="-parameters" />
+      <module name="RibbonHelloApplication (1)" options="-parameters" />
+      <module name="RibbonHystrixApplication" options="-parameters" />
       <module name="UserService" options="-parameters" />
       <module name="auth_server" options="-parameters" />
       <module name="eureka_server" options="-parameters" />

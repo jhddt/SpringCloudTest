@@ -1,5 +1,5 @@
-D:\SpringCloud\微服务开发code\4\UserService\src\main\java\com\example\UserService\dao\UserMapper.java
-D:\SpringCloud\微服务开发code\4\UserService\src\main\java\com\example\UserService\UserServiceApplication.java
-D:\SpringCloud\微服务开发code\4\UserService\src\main\java\com\example\UserService\entity\User.java
-D:\SpringCloud\微服务开发code\4\UserService\src\main\java\com\example\UserService\service\UserService.java
-D:\SpringCloud\微服务开发code\4\UserService\src\main\java\com\example\UserService\controllers\UserController.java
+D:\SpringCloud\SpringCloudDemo\UserService\src\main\java\com\example\UserService\service\UserService.java
+D:\SpringCloud\SpringCloudDemo\UserService\src\main\java\com\example\UserService\controllers\UserController.java
+D:\SpringCloud\SpringCloudDemo\UserService\src\main\java\com\example\UserService\UserServiceApplication.java
+D:\SpringCloud\SpringCloudDemo\UserService\src\main\java\com\example\UserService\entity\User.java
+D:\SpringCloud\SpringCloudDemo\UserService\src\main\java\com\example\UserService\dao\UserMapper.java

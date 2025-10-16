@@ -5,10 +5,10 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
+        <version>3.5.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.baorant</groupId>
+    <groupId>org.baorant</groupId>
     <artifactId>eureka_server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>eureka_server</name>
@@ -27,8 +27,8 @@
         <url/>
     </scm>
     <properties>
-        <java.version>8</java.version>
-<!--        <spring-cloud.version>2025.0.0</spring-cloud.version>-->
+        <java.version>17</java.version>
+        <spring-cloud.version>2025.0.0</spring-cloud.version>
     </properties>
     <dependencies>
         <dependency>
@@ -47,7 +47,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR3</version> <!-- 替换为你的 Spring Cloud 版本 -->
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -59,24 +59,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
                 <configuration>
-                    <imageName> master_eureka_server_docker</imageName>
-                    <!-- 指定 Dockerfile 路径 -->
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                    <dockerHost>http://192.168.56.101:2375</dockerHost>
+                    <mainClass>com.baorant.eureka_server.EurekaServerApplication</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
