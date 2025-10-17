@@ -1,6 +1,6 @@
 spring:
   application:
-    name: FeignCloudClientApplication
+    name: Feign-Client
 eureka:
   client:
     service-url:
@@ -9,7 +9,8 @@ eureka:
     register-with-eureka: true
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
 
 feign:
   client:
@@ -17,3 +18,5 @@ feign:
       UserService:
         connectTimeout: 5000
         readTimeout: 5000
+server:
+  port: 9090
