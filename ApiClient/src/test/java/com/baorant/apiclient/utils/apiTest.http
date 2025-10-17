@@ -1,0 +1,13 @@
+### 测试GET请求 - 获取用户列表
+GET http://192.168.56.101:4444/users/user/sayHi?sleep_seconds=1
+Accept: application/json
+
+### 测试POST请求 - 创建用户
+POST http://192.168.56.101:10001/user/add
+Content-Type: application/json
+
+{
+   "name": "testuser",
+  "password": "test@example.com",
+  "username": "myuser"
+}
