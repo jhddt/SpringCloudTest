@@ -4,11 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.UserService.entity.User;
 import com.example.UserService.service.UserService;
@@ -49,10 +45,21 @@ public class UserController {
     String ipaddr;
     @Value("${server.port}")
     int port;
-    @RequestMapping(value = "/sayHi", method = RequestMethod.GET)
-    public String hello(@RequestParam(value = "sleep_seconds", required = true) int sleep_seconds) throws InterruptedException {
-        Thread.sleep(sleep_seconds * 1000); //休眠
-        return "Hello, 我在" + ipaddr + ":" + port;
+//    @RequestMapping(value = "/sayHi", method = RequestMethod.GET)
+//    public String hello(@RequestParam(value = "sleep_seconds", required = true) int sleep_seconds) throws InterruptedException {
+//        Thread.sleep(sleep_seconds * 1000); //休眠
+//        return "Hello, 我在" + ipaddr + ":" + port;
+//    }
+
+    @GetMapping("/sayHi")
+    public String sayHi(@RequestParam(value = "sleep_seconds", required = true) int sleep_seconds) {
+        System.out.println("sayHi begin sleep_seconds: " + sleep_seconds);
+        try {
+            Thread.sleep(sleep_seconds * 1000L);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        return "👋 Hello from UserService! 我在:" + ipaddr + ":" + port + " (sleep=" + sleep_seconds + "s)";
     }
 
 }
