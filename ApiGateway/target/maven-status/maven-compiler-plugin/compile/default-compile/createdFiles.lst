@@ -1,0 +1,10 @@
+com\baorant\apigateway\filter\MyRoutingFilter.class
+com\baorant\apigateway\filter\MyRoutingFilter2.class
+com\baorant\apigateway\filter\MyErrorFilter.class
+com\baorant\apigateway\filter\MyPostFilter.class
+com\baorant\apigateway\filter\IPFilter.class
+com\baorant\apigateway\filter\LogFilter.class
+com\baorant\apigateway\ApiGatewayApplication.class
+com\baorant\apigateway\Utis\IpUtil.class
+com\baorant\apigateway\filter\MyPreFilter2.class
+com\baorant\apigateway\filter\MyPreFilter.class

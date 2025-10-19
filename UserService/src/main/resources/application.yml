@@ -1,5 +1,6 @@
 server:
   port: 10001
+
 spring:
   application:
     name: UserService
@@ -9,19 +10,19 @@ spring:
     username: linkout_user
     password: 1234
     driver-class-name: com.mysql.jdbc.Driver
+
 #mybatis mapper文件的位置
 mybatis:
   mapper-locations: classpath*:mappers/**/*.xml
 #扫描pojo类的位置,在此处指明扫描实体类的包，在mapper中就可以不用写pojo类的全路径名了
   type-aliases-package: com.example.UserService.entity
-eureka: 
+
+eureka:
   client:
     service-url:
       defaultZone: http://192.168.141.128:1111/eureka/,http://192.168.141.128:2222/eureka/
-#  instance:
-#    prefer-ip-address: true
-#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    instance:
-      prefer-ip-address: true
-      instance-id: ${spring.application.name}:${server.port}
-  
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}

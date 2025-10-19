@@ -10,8 +10,10 @@
         <module name="UserService" />
         <module name="RibbonHelloApplication" />
         <module name="RibbonHystrixApplication" />
+        <module name="zuulserver" />
         <module name="eureka_server" />
         <module name="FeignHystrixApplication" />
+        <module name="ConfigServer" />
         <module name="FeignCloudClientApplication" />
         <module name="ApiClient" />
         <module name="auth_server" />
@@ -20,12 +22,12 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="RibbonHelloApplication (1)" target="17" />
-      <module name="zuulserver" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiClient" options="-parameters" />
+      <module name="ConfigServer" options="-parameters" />
       <module name="FeignCloudClientApplication" options="-parameters" />
       <module name="FeignHystrixApplication" options="-parameters" />
       <module name="ResouceServerApplication" options="-parameters" />

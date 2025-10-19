@@ -14,7 +14,8 @@ import com.example.UserService.service.UserService;
 public class UserController {
     @Autowired
     private UserService userService;
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    
+    @PostMapping("/add")
     public boolean addUser(@RequestBody User user) {
         return userService.addUser(user);
     }

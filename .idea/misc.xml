@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/RibbonHystrixApplication/pom.xml" />
         <option value="$PROJECT_DIR$/ApiClient/pom.xml" />
         <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigServer/pom.xml" />
       </list>
     </option>
   </component>
