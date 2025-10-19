@@ -55,7 +55,7 @@ public class UserController {
     public String sayHi(@RequestParam(value = "sleep_seconds", required = true) int sleep_seconds) {
         System.out.println("sayHi begin sleep_seconds: " + sleep_seconds);
         try {
-            Thread.sleep(sleep_seconds * 1000L);
+            Thread.sleep(sleep_seconds * 10000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }

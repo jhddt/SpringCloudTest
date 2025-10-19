@@ -1,5 +1,0 @@
-com\baorant\ribbonhelloapplication\entity\User.class
-com\baorant\ribbonhelloapplication\controller\ConsumerController.class
-com\baorant\ribbonhelloapplication\RibbonHystrixApplication.class
-com\baorant\ribbonhelloapplication\aspect\ExecutionTimeAspect.class
-com\baorant\ribbonhelloapplication\config\RibbonConfig.class
