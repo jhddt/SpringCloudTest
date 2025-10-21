@@ -40,9 +40,10 @@ public class UserService {
 	public boolean updateUser(User u) {
 		boolean result = false;
 		try {
-			userMapper.updateByPrimaryKey(u);
-			result = true;
+			int rowsAffected = userMapper.updateByPrimaryKey(u);
+			result = rowsAffected > 0;
 		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 		return result;
 	}

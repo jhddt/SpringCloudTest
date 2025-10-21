@@ -1,0 +1,38 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: springcloud-config-server
+  rabbitmq:
+    host: 192.168.159.128
+    port: 5672
+    username: admin
+    password: rabbitpass
+  cloud:
+    bus:
+      trace:
+        enabled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/ASaltyFishL/MySpringcloudCode
+          search-paths: /code/src/main/resources
+          username: ASaltyFishL
+          password:
+          skip-ssl-validation: true
+          default-label: master
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 配置日志路径
+logging:
+  file:
+    name: ./logs/config-server-git.log
+  level:
+    root: info
+    org.springframework.cloud: debug

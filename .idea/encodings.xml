@@ -3,7 +3,10 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/ApiClient/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ApiGateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConfigClient/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ConfigServer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConfigServerGit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConfigServerLocal/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FeignCloudClientApplication/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FeignHystrixApplication/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ResouceServerApplication/src/main/java" charset="UTF-8" />
@@ -14,6 +17,7 @@
     <file url="file://$PROJECT_DIR$/UserService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/auth_server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/auth_server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka_server/src/main/java" charset="UTF-8" />
   </component>
 </project>

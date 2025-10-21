@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: springcloud-config-server
+  profiles:
+    active: remote
+
+# 如果需要注册到Eureka，取消注释以下配置
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.159.128:1111/eureka/,http://192.168.159.128:2222/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
