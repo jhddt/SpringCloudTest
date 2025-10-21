@@ -5,7 +5,7 @@ spring:
   application:
     name: springcloud-config-server
   rabbitmq:
-    host: 192.168.159.128
+    host: 192.168.141.128
     port: 5672
     username: admin
     password: rabbitpass
@@ -18,7 +18,7 @@ spring:
         git:
           uri: https://github.com/ASaltyFishL/MySpringcloudCode
           search-paths: /code/src/main/resources
-          username: ASaltyFishL
+          username:
           password:
           skip-ssl-validation: true
           default-label: master
