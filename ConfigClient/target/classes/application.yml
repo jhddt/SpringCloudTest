@@ -1,19 +1,15 @@
-# 服务器配置
 server:
   port: 8088
 
-# 自定义数据配置
 data:
   env: Test
 
-# 管理端点配置
 management:
   endpoints:
     web:
       exposure:
         include: "*"
 
-# 日志级别配置
 logging:
   level:
     root: info

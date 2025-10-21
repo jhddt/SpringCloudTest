@@ -2,7 +2,15 @@ spring:
   application:
     name: springcloud-config-server
   profiles:
-    active: remote
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/
+
+server:
+  port: 9005
 
 # 如果需要注册到Eureka，取消注释以下配置
 eureka:
@@ -12,3 +20,17 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  file:
+    name: ./logs/config-server-local.log
+  level:
+    root: info
+    org.springframework.cloud: debug
+

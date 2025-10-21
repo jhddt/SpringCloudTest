@@ -1,26 +1,36 @@
+# Spring Cloud Config Client 配置
 spring:
+  # 应用名称配置
   application:
     name: demo
+  # 激活的配置文件，默认为dev环境
   profiles:
     active: dev
+  # 导入外部配置，连接到配置服务器
   config:
     import: "optional:configserver:http://192.168.141.128:9005"
+  # Spring Cloud Config 客户端配置
   cloud:
     config:
-      label: master
+      # 配置仓库标签（分支）
+      label: main
+      # 配置环境标识，引用激活的profiles值
       profile: ${spring.profiles.active}
+  # RabbitMQ 消息队列配置，用于消息总线
   rabbitmq:
     host: 192.168.141.128
     port: 5672
     username: admin
     password: rabbitpass
 
+# 多环境配置：开发环境配置部分
 ---
 spring:
   config:
     activate:
       on-profile: dev
 
+# 多环境配置：生产环境配置部分
 ---
 spring:
   config:

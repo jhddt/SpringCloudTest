@@ -27,10 +27,21 @@ import java.security.interfaces.RSAPublicKey;
 import java.time.Duration;
 import java.util.UUID;
 
+/**
+ * OAuth2 授权服务器配置类
+ * 用于配置 OAuth2 授权服务器的安全策略、JWT 解码器、JWK 源等核心组件
+ */
 @Configuration
 @EnableWebSecurity
 public class Oauth2AuthorizationServerConfiguration {
 
+    /**
+     * 配置授权服务器安全过滤器链
+     * 该过滤器链专门处理 OAuth2 相关端点的安全配置
+     * @param http HttpSecurity 对象，用于配置安全策略
+     * @return SecurityFilterChain 安全过滤器链
+     * @throws Exception 配置过程中可能抛出的异常
+     */
     @Bean
     @Order(1)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http)
@@ -51,6 +62,14 @@ public class Oauth2AuthorizationServerConfiguration {
         return http.build();
     }
 
+    /**
+     * 配置默认安全过滤器链
+     * 该过滤器链处理除 OAuth2 端点外的其他请求的安全配置
+     * 
+     * @param http HttpSecurity 对象，用于配置安全策略
+     * @return SecurityFilterChain 安全过滤器链
+     * @throws Exception 配置过程中可能抛出的异常
+     */
     @Bean
     @Order(2)
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
@@ -65,6 +84,12 @@ public class Oauth2AuthorizationServerConfiguration {
         return http.build();
     }
 
+    /**
+     * 创建 JWK 源，用于 JWT 签名和验证
+     * 生成 RSA 密钥对并创建 JWKSet，供授权服务器使用
+     * 
+     * @return JWKSource JWK 源对象
+     */
     @Bean
     public JWKSource<SecurityContext> jwkSource() {
         KeyPair keyPair = generateRsaKey();
@@ -78,6 +103,12 @@ public class Oauth2AuthorizationServerConfiguration {
         return new ImmutableJWKSet<>(jwkSet);
     }
 
+    /**
+     * 生成 RSA 密钥对
+     * 使用 RSA 算法生成 2048 位密钥对
+     * 
+     * @return KeyPair RSA 密钥对
+     */
     private static KeyPair generateRsaKey() {
         KeyPair keyPair;
         try {
@@ -91,16 +122,35 @@ public class Oauth2AuthorizationServerConfiguration {
         return keyPair;
     }
 
+    /**
+     * 创建 JWT 解码器
+     * 用于验证和解析 JWT 令牌
+     * 
+     * @param jwkSource JWK 源对象，用于获取验证 JWT 所需的公钥
+     * @return JwtDecoder JWT 解码器
+     */
     @Bean
     public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
         return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
     }
 
+    /**
+     * 创建授权服务器设置
+     * 配置授权服务器的相关设置
+     * 
+     * @return AuthorizationServerSettings 授权服务器设置对象
+     */
     @Bean
     public AuthorizationServerSettings authorizationServerSettings() {
         return AuthorizationServerSettings.builder().build();
     }
 
+    /**
+     * 创建密码编码器
+     * 用于对用户密码进行编码和验证
+     * 
+     * @return PasswordEncoder 密码编码器
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();

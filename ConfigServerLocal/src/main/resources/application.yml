@@ -1,36 +1,52 @@
+# Spring Cloud Config Server 配置
 spring:
+  # 应用名称配置
   application:
     name: springcloud-config-server
+  # 激活的配置文件，使用native表示从本地文件系统加载配置
   profiles:
     active: native
+  # Spring Cloud 配置服务器相关设置
   cloud:
     config:
       server:
+        # Native模式配置，直接从classpath加载配置文件
         native:
           search-locations: classpath:/
 
+# 服务器端口配置
 server:
   port: 9005
 
 # 如果需要注册到Eureka，取消注释以下配置
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://192.168.141.128:1111/eureka/,http://192.168.141.128:2222/eureka/
-#  instance:
-#    prefer-ip-address: true
-#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+# Eureka客户端配置，用于服务注册与发现
+eureka:
+  # Eureka服务器地址配置
+  client:
+    service-url:
+      defaultZone: http://192.168.141.128:1111/eureka/,http://192.168.141.128:2222/eureka/
+  # 实例配置信息
+  instance:
+    # 使用IP地址注册到Eureka而不是主机名
+    prefer-ip-address: true
+    # 实例ID格式配置，使用IP地址和端口号
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
+# 管理端点配置
 management:
   endpoints:
     web:
       exposure:
+        # 暴露所有管理端点
         include: "*"
 
+# 日志配置
 logging:
   file:
+    # 日志文件路径及名称
     name: ./logs/config-server-local.log
   level:
+    # 根日志级别
     root: info
+    # Spring Cloud相关包的日志级别
     org.springframework.cloud: debug
-
