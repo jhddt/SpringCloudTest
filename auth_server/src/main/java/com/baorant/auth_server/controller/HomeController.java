@@ -1,5 +1,7 @@
 package com.baorant.auth_server.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,8 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.stream.Collectors;
 
 @RestController
+@Api(tags = "服务认证中心主页")
 public class HomeController {
 
+    @ApiOperation("主页")
     @GetMapping("/")
     public String home() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
