@@ -1,25 +1,37 @@
+# 服务器配置
 server:
+  # 服务端口
   port: 8081
+  # 服务器绑定地址，0.0.0.0表示绑定到所有网络接口
   address: 0.0.0.0
 
+# Spring应用配置
 spring:
   application:
-    name: resource-server-application
+    # 应用名称
+    name: resource-server
   security:
     oauth2:
-          resourceserver:
-            jwt:
-              issuer-uri: http://192.168.141.128:3333
-              jwk-set-uri: http://192.168.141.128:3333/oauth2/jwks
+      # 资源服务器配置
+      resourceserver:
+        jwt:
+          # JWT令牌颁发者URI
+          issuer-uri: http://192.168.141.128:3333
+          # JWK Set URI，用于验证JWT签名
+          jwk-set-uri: http://192.168.141.128:3333/oauth2/jwks
 
 # OAuth2 Resource Server Configuration
 
+# 日志配置
 logging:
   level: 
     org:
       springframework:
+        # Spring Security相关日志级别
         security: DEBUG
     com:
       baorant:
+        # 本应用相关日志级别
         resouceserverapplication: DEBUG
+    # 根日志级别
     root: INFO

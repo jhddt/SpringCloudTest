@@ -10,9 +10,15 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
 
+/**
+ * Resilience4j配置类，用于配置熔断器和超时设置
+ */
 @Configuration
 public class Resilience4jConfig {
-
+    /**
+     * 配置UserService的自定义熔断器参数
+     * @return Resilience4JCircuitBreakerFactory的自定义配置
+     */
     @Bean
     public Customizer<Resilience4JCircuitBreakerFactory> userServiceCustomizer() {
         return factory -> factory.configure(builder -> builder

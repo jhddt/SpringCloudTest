@@ -8,7 +8,7 @@ spring:
     active: dev
   # 导入外部配置，连接到配置服务器
   config:
-    import: "optional:configserver:http://192.168.141.128:9005"
+    import: "optional:configserver:http://192.168.141.128:9006"
   # Spring Cloud Config 客户端配置
   cloud:
     config:

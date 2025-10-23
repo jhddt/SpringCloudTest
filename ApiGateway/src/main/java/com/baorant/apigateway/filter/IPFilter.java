@@ -62,7 +62,6 @@ public class IPFilter implements GlobalFilter, Ordered {
             ServerHttpResponse response = exchange.getResponse();
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             response.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
-
             String responseBody = "{\"errorcode\":\"00001\", \"errmsg\": \"IpAddr is forbidden![" + ipAddr + "]\"}";
             DataBuffer buffer = response.bufferFactory().wrap(responseBody.getBytes(StandardCharsets.UTF_8));
             return response.writeWith(Mono.just(buffer));

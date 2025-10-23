@@ -11,9 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 //@EnableCircuitBreaker
 public class FeignHystrixApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(FeignHystrixApplication.class, args);
     }
-
 }

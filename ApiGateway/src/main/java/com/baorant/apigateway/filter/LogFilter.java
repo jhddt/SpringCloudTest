@@ -14,12 +14,24 @@ import reactor.core.publisher.Mono;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 日志过滤器，用于记录API网关的请求信息
+ * 实现了GlobalFilter接口，对所有请求生效
+ * 实现了Ordered接口，可以设置过滤器执行顺序
+ */
 @Component
 public class LogFilter implements GlobalFilter, Ordered {
 
     //记录日志
     private static final Logger logger = LoggerFactory.getLogger(LogFilter.class);
 
+    /**
+     * 过滤器核心方法，记录请求的相关信息
+     * 
+     * @param exchange ServerWebExchange对象，包含HTTP请求和响应信息
+     * @param chain GatewayFilterChain对象，表示过滤器链
+     * @return Mono<Void> 异步处理结果
+     */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
@@ -38,6 +50,11 @@ public class LogFilter implements GlobalFilter, Ordered {
         return chain.filter(exchange);
     }
 
+    /**
+     * 获取过滤器执行顺序
+     * 
+     * @return int 返回0，表示最高优先级
+     */
     @Override
     public int getOrder() {
         return 0;

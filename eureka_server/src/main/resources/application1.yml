@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: eurekasever-master
+server:
+  port: 1111
+eureka:
+  # Eureka服务器配置
+  server:
+    # 关闭自我保护机制
+    enable-self-preservation: false
+    # 续约清理间隔时间(ms)
+    eviction-interval-timer-in-ms: 50000
+  # Eureka客户端配置
+  client:
+    # 是否将自己注册到注册中心
+    register-with-eureka: true
+    # 是否从注册中心获取服务信息
+    fetch-registry: true
+    # 配置区域
+    region: beijing
+    # 可用区域配置
+    availability-zones:
+      beijing: zone1,zone2
+    # 服务URL配置
+    service-url:
+      zone1: http://192.168.141.128:1111/eureka/
+      zone2: http://192.168.141.128:2222/eureka/
+      defaultZone: http://192.168.141.128:2222/eureka/
+  # Eureka实例配置
+  instance:
+    # 主机名
+    hostname: 192.168.141.128
+    # 应用名称
+    appname: eureka-server
+    # 续约间隔时间(秒)
+    lease-renewal-interval-in-seconds: 5
+    # 续约到期时间(秒)
+    lease-expiration-duration-in-seconds: 10
+    # 实例ID
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  # 环境和数据中心配置
+  environment: 测试环境
+  datacenter: 测试Eureka服务注册中心

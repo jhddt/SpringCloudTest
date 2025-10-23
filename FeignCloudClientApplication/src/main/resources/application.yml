@@ -1,22 +1,25 @@
+# Spring Cloud相关配置
 spring:
   application:
+    # 应用名称，用于服务注册与发现
     name: Feign-Client
+
+# Eureka客户端配置
 eureka:
   client:
     service-url:
+      # Eureka服务端地址，配置了两个注册中心地址
       defaultZone: http://192.168.141.128:1111/eureka/,http://192.168.141.128:2222/eureka/
+    # 是否从Eureka Server获取注册信息
     fetch-registry: true
+    # 是否将自身注册到Eureka Server
     register-with-eureka: true
   instance:
+    # 注册时使用IP地址而非主机名
     prefer-ip-address: true
+    # 实例ID的生成规则，使用IP地址和端口号
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
-
-
-feign:
-  client:
-    config:
-      UserService:
-        connectTimeout: 5000
-        readTimeout: 5000
+# 服务端口配置
 server:
+  # 服务监听端口
   port: 9090

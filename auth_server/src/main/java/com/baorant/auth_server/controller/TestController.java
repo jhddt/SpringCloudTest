@@ -22,13 +22,10 @@ import java.util.Map;
 @RequestMapping("/test")
 @Api(tags = "认证服务测试")
 public class TestController {
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
     /**
      * 测试数据库连接状态
      * 通过查询admin用户来验证数据库连接是否正常

@@ -1,6 +1,6 @@
 # 服务器配置
 server:
-  port: 9005
+  port: 9006
 
 # Spring相关配置
 spring:

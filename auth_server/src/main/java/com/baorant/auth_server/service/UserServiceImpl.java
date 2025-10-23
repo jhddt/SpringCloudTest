@@ -15,16 +15,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     static org.slf4j.Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-
     @Autowired
     private SpringcloudUserMapper springcloudUserMapper;
-
     @Autowired
     private SpringcloudUserRoleMapper springcloudUserRoleMapper;
-
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
     @Override
     public SpringcloudUser getUser(String username) {
         return springcloudUserMapper.findByUsername(username);

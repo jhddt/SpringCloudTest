@@ -10,14 +10,23 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 import java.io.IOException;
 
+/**
+ * MyBatis配置类
+ * 用于配置SqlSessionFactoryBean，设置数据源、实体类别名包和Mapper映射文件路径
+ */
 @Configuration
 public class MyBatisConfiguration {
 
+    /**
+     * 创建SqlSessionFactoryBean实例并进行相关配置
+     * @param dataSource 数据源对象，由Spring自动注入
+     * @return 配置完成的SqlSessionFactoryBean实例
+     * @throws IOException 当读取Mapper文件时发生IO异常
+     */
     @Bean
     @Autowired
     @ConditionalOnMissingBean
-    public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource)
-            throws IOException {
+    public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         // 设置数据源
         sqlSessionFactoryBean.setDataSource(dataSource);

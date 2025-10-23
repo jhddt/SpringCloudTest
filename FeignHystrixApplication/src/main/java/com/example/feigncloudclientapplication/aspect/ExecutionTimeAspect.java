@@ -13,22 +13,17 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class ExecutionTimeAspect {
-
     private static final Logger logger = LoggerFactory.getLogger(ExecutionTimeAspect.class);
-
     @Around("@annotation(org.springframework.web.bind.annotation.GetMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.PostMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
-
         try {
             Object result = joinPoint.proceed();
             long executionTime = System.currentTimeMillis() - startTime;
-
             logger.info("{} executed in {} ms",
                     joinPoint.getSignature().toShortString(), executionTime);
-
             return result;
         } catch (Exception e) {
             long executionTime = System.currentTimeMillis() - startTime;
