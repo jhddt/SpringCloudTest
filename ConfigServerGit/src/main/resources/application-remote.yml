@@ -1,7 +1,6 @@
 # 服务器配置
 server:
   port: 9006
-
 # Spring相关配置
 spring:
   # 应用名称配置
@@ -19,21 +18,17 @@ spring:
     bus:
       trace:
         enabled: true
-
-#TODO 配置gitee的账号和密码
-
     # 配置中心服务端配置
     config:
       server:
         # Git仓库配置，用于从远程Git仓库获取配置文件
         git:
-          uri: https://github.com/jhddt/SpringCloudTest.git
-          search-paths: ConfigServerLocal/src/main/resources
+          uri: https://gitee.com/zck1/spring-cloud-demo.git
+          search-paths: ConfigServerLocal/target/classes
           username: 1876990651@qq.com
           password: Zckljz0926..
           skip-ssl-validation: true
           default-label: main
-
 # 管理端点配置
 management:
   endpoints:

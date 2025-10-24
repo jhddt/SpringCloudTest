@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/ConfigServerLocal/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FeignCloudClientApplication/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FeignHystrixApplication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RedisTopicQueue/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ResouceServerApplication/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RibbonHello/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RibbonHelloApplication/src/main/java" charset="UTF-8" />

@@ -19,6 +19,7 @@
         <module name="RibbonHelloApplication" />
         <module name="eureka_server" />
         <module name="auth_server" />
+        <module name="RedisTopicQueue" />
         <module name="ConfigServerGit" />
       </profile>
     </annotationProcessing>
@@ -37,6 +38,7 @@
       <module name="ConfigServerLocal" options="-parameters" />
       <module name="FeignCloudClientApplication" options="-parameters" />
       <module name="FeignHystrixApplication" options="-parameters" />
+      <module name="RedisTopicQueue" options="-parameters" />
       <module name="ResouceServerApplication" options="-parameters" />
       <module name="RibbonHelloApplication" options="-parameters" />
       <module name="RibbonHelloApplication (1)" options="-parameters" />
