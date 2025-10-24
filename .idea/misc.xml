@@ -21,6 +21,7 @@
         <option value="$PROJECT_DIR$/ConfigServerGit/pom.xml" />
         <option value="$PROJECT_DIR$/ConfigServerLocal/pom.xml" />
         <option value="$PROJECT_DIR$/RedisTopicQueue/pom.xml" />
+        <option value="$PROJECT_DIR$/RabbitDemo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -11,6 +11,7 @@
         <module name="UserService" />
         <module name="RibbonHystrixApplication" />
         <module name="zuulserver" />
+        <module name="RabbitDemo" />
         <module name="FeignHystrixApplication" />
         <module name="FeignCloudClientApplication" />
         <module name="ApiClient" />
@@ -38,6 +39,7 @@
       <module name="ConfigServerLocal" options="-parameters" />
       <module name="FeignCloudClientApplication" options="-parameters" />
       <module name="FeignHystrixApplication" options="-parameters" />
+      <module name="RabbitDemo" options="-parameters" />
       <module name="RedisTopicQueue" options="-parameters" />
       <module name="ResouceServerApplication" options="-parameters" />
       <module name="RibbonHelloApplication" options="-parameters" />

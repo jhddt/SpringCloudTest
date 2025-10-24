@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: RabbitDemo
+
+  rabbitmq:
+    host: 192.168.141.128
+    port: 5672
+    username: admin
+    password: admin
+server:
+  port: 1013
