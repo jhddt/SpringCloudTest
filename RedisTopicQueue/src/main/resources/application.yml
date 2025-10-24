@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: RedisTopicQueue
+  data:
+    redis:
+      host: 192.168.141.128
+      password: 123456
+      port: 6379
+
+
+logging:
+  file:
+    name: ./logs/redis-topic-queue/app.log
+  level:
+    root: info
+server:
+  port: 1010
