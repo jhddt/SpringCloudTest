@@ -1,9 +1,0 @@
-eureka:
-  client:
-    service-url:
-      zone-1: http://eurekaserver-master:1111/eureka/
-      zone-2: http://eurekaserver-slave:2222/eureka/
-      defaultZone: http://eurekaserver-dev-master:1111/eureka/, http://eurekaserver-dev-slave:2222/eureka/
-
-data:
-  env: dev

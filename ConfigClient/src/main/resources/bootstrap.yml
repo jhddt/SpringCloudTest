@@ -36,3 +36,9 @@ spring:
   config:
     activate:
       on-profile: pro
+
+# 问题排查提示：
+# 1. 确保ConfigServerGit服务运行在192.168.141.128:9006
+# 2. 确保Git仓库中的配置文件格式正确，路径为config/demo-dev.yml
+# 3. 确保RabbitMQ服务运行在192.168.141.128:5672
+# 4. 如果配置值为null，检查Git仓库中的配置文件是否存在data.env属性

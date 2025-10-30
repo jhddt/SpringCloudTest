@@ -3,6 +3,7 @@ server:
   port: 8088
 
 # 自定义数据配置
+# 这是ConfigClient本地的默认配置，会被Git仓库中的配置覆盖
 data:
   env: Test
 
@@ -15,7 +16,7 @@ management:
   endpoint:
     refresh:
       enabled: true
-    bus-refresh:
+    busrefresh:
       enabled: true
 
 # 日志级别配置
@@ -23,3 +24,9 @@ logging:
   level:
     root: info
     org.springframework.cloud: debug
+
+# 问题排查提示：
+# 1. 如果访问/actuator/busrefresh出现405错误，检查端点名称是否正确（应为busrefresh而非bus-refresh）
+# 2. 如果配置刷新不生效，确保RabbitMQ服务正常运行
+# 3. 可通过/actuator/refresh单独刷新当前客户端配置
+# 4. 可通过/actuator/busrefresh刷新所有连接到消息总线的客户端配置
