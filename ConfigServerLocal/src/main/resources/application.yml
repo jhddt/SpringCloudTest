@@ -16,7 +16,7 @@ spring:
 
 # 服务器端口配置
 server:
-  port: 9005
+  port: 9006
 
 # 如果需要注册到Eureka，取消注释以下配置
 # Eureka客户端配置，用于服务注册与发现

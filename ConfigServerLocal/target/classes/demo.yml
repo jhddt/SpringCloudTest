@@ -1,5 +1,7 @@
 spring:
   application:
     name: demo
-server:
-  port: 11001
+# server:
+#   port: 11001
+data:
+  env: ConfigServer

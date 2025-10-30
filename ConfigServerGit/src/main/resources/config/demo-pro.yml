@@ -1,2 +1,4 @@
+server:
+  port: 8088
 data:
-  env: product
+  env: git-pro

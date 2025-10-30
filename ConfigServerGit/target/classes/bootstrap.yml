@@ -1,14 +1,22 @@
 spring:
+  # 应用程序配置
   application:
+    # 应用名称，用于服务标识
     name: springcloud-config-server
+  # 配置文件环境配置
   profiles:
+    # 激活的配置文件环境，使用remote配置
     active: remote
-
 # 如果需要注册到Eureka，取消注释以下配置
 eureka:
+  # Eureka客户端配置
   client:
+    # Eureka服务端地址，配置双节点注册中心
     service-url:
       defaultZone: http://192.168.141.128:1111/eureka/,http://192.168.141.128:2222/eureka/
+  # Eureka实例配置
   instance:
+    # 使用IP地址注册而不是主机名
     prefer-ip-address: true
+    # 实例ID格式，使用IP地址和端口组合
     instance-id: ${spring.cloud.client.ip-address}:${server.port}

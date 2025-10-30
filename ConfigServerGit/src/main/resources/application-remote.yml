@@ -11,7 +11,7 @@ spring:
     host: 192.168.141.128
     port: 5672
     username: admin
-    password: rabbitpass
+    password: admin
   # Spring Cloud相关配置
   cloud:
     # Spring Cloud Bus配置，用于配置刷新和消息总线
@@ -24,10 +24,11 @@ spring:
         # Git仓库配置，用于从远程Git仓库获取配置文件
         git:
           uri: https://gitee.com/zck1/spring-cloud-demo.git
-          search-paths: ConfigServerLocal/target/classes
+          search-paths: config # 配置文件所在路径
           username: 1876990651@qq.com
           password: Zckljz0926..
-          skip-ssl-validation: true
+          clone-on-start: true # 启动时是否克隆仓库
+          skip-ssl-validation: true # 跳过SSL验证
           default-label: main
 # 管理端点配置
 management:
@@ -35,6 +36,9 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    busrefresh:
+      enabled: true
 
 # 配置日志路径
 # 日志配置

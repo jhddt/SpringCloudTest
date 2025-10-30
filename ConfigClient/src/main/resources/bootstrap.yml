@@ -14,14 +14,14 @@ spring:
     config:
       # 配置仓库标签（分支）
       label: main
-      # 配置环境标识，引用激活的profiles值
-      profile: ${spring.profiles.active}
+      # 配置环境标识，使用固定的值而不是引用变量
+      profile: dev
   # RabbitMQ 消息队列配置，用于消息总线
   rabbitmq:
     host: 192.168.141.128
     port: 5672
     username: admin
-    password: rabbitpass
+    password: admin
 
 # 多环境配置：开发环境配置部分
 ---
