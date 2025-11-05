@@ -12,52 +12,65 @@ import java.util.Map;
 
 /**
  * 配置测试控制器
- * 用于测试从配置服务器获取的配置信息
+ * 用于验证 ConfigClient 是否能正确加载远程 Git 仓库的配置
  */
 @RestController
 @RefreshScope
 @RequestMapping("/test")
 public class TestController {
+
     @Autowired
-    GitConfig gitConfig;
+    private GitConfig gitConfig;
+
+    /**
+     * 健康检查接口
+     */
+    @GetMapping("/health")
+    public Map<String, Object> health() {
+        Map<String, Object> result = new HashMap<>();
+        result.put("code", 200);
+        result.put("message", "ConfigClient is running normally.");
+        result.put("timestamp", System.currentTimeMillis());
+        return result;
+    }
 
     /**
      * 显示当前环境配置
-     * 该接口用于展示从Git配置仓库获取的环境信息
-     * 如果显示为null，可能的原因：
-     * 1. 配置服务器未正确启动或配置文件未更新
-     * 2. ConfigClient未正确连接到配置服务器
-     * 3. 配置刷新未生效或配置属性名称不匹配
-     * 4. Git仓库中的配置文件格式或内容有误
-     * 
-     * @return 当前环境配置信息
      */
     @GetMapping("/show")
-    public String show() {
-        return "Current Environment: " + gitConfig.env;
+    public Map<String, Object> show() {
+        Map<String, Object> result = new HashMap<>();
+        String env = gitConfig.getEnv(); // ✅ 用 getter 访问
+
+        if (env == null || env.equals("Default")) {
+            result.put("code", 500);
+            result.put("message", "配置未从 Git 仓库正确加载");
+            result.put("hint", "请检查 ConfigServer 是否正常、Git 路径是否正确");
+        } else {
+            result.put("code", 200);
+            result.put("message", "配置加载成功");
+            result.put("data", env);
+        }
+
+        result.put("timestamp", System.currentTimeMillis());
+        return result;
     }
-    
+
     /**
-     * 健康检查接口
-     * 用于检查ConfigClient服务是否正常运行
-     * 
-     * @return 服务运行状态信息
-     */
-    @GetMapping("/health")
-    public String health() {
-        return "ConfigClient is running";
-    }
-    
-    /**
-     * 获取详细配置信息接口
-     * 以JSON格式返回当前的配置信息
-     * 
-     * @return 包含环境配置的Map对象
+     * 获取详细配置信息
      */
     @GetMapping("/config")
-    public Map<String, String> config() {
-        Map<String, String> configMap = new HashMap<>();
-        configMap.put("env", gitConfig.env);
-        return configMap;
+    public Map<String, Object> config() {
+        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("env", gitConfig.getEnv()); // ✅ 同样用 getter
+
+        result.put("code", 200);
+        result.put("message", "配置详情");
+        result.put("data", data);
+        result.put("timestamp", System.currentTimeMillis());
+
+        return result;
     }
 }
