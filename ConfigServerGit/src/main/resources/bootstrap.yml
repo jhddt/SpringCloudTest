@@ -1,8 +1,4 @@
 spring:
-  # 应用程序配置
-  application:
-    # 应用名称，用于服务标识
-    name: springcloud-config-server
   # 配置文件环境配置
   profiles:
     # 激活的配置文件环境，使用remote配置

@@ -5,7 +5,7 @@ server:
 spring:
   # 应用名称配置
   application:
-    name: springcloud-config-server
+    name: spring-cloud-config-server
   # RabbitMQ消息中间件配置
   rabbitmq:
     host: 192.168.141.128
@@ -34,9 +34,6 @@ management:
     web:
       exposure:
         include: "*"
-  endpoint:
-    busrefresh:
-      enabled: true
 
 # 配置日志路径
 # 日志配置
