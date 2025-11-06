@@ -30,12 +30,12 @@ public class ConfigStartupLogger implements ApplicationListener<ApplicationReady
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         log.info("\n\n==============================================");
-        log.info("✅ Config Client 启动成功并加载远程配置！");
-        log.info("📦 应用名: {}", env.getProperty("spring.application.name", "未知"));
-        log.info("🧩 当前环境 (profile): {}", env.getProperty("spring.profiles.active", "未定义"));
-        log.info("🌿 使用分支 (label): {}", env.getProperty("spring.cloud.config.label", "未定义"));
-        log.info("📁 远程配置路径: {}", env.getProperty("spring.cloud.config.uri", "未定义"));
-        log.info("🔧 当前 data.env: {}", gitConfig.getEnv());
+        log.info("Config Client 启动成功并加载远程配置！");
+        log.info("应用名: {}", env.getProperty("spring.application.name", "未知"));
+        log.info("当前环境 (profile): {}", env.getProperty("spring.profiles.active", "未定义"));
+        log.info("使用分支 (label): {}", env.getProperty("spring.cloud.config.label", "未定义"));
+        log.info("远程配置路径: {}", env.getProperty("spring.cloud.config.uri", "未定义"));
+        log.info("当前 data.env: {}", gitConfig.getEnv());
         log.info("==============================================\n");
     }
 }

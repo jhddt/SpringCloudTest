@@ -9,8 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ConfigClient" />
         <module name="UserService" />
-        <module name="RibbonHystrixApplication" />
         <module name="zuulserver" />
+        <module name="RibbonHystrixApplication" />
         <module name="RabbitDemo" />
         <module name="FeignHystrixApplication" />
         <module name="FeignCloudClientApplication" />
